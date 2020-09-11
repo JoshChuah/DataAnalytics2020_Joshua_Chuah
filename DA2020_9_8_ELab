@@ -1,0 +1,38 @@
+library(MASS)
+attach(Boston) #attach a dataset, ?Boston for help menu, description (dimensions)  of data and definition of each parameter head title
+
+#Just inspecting the data, no munging or statistics
+
+head(Boston)
+?Boston
+help("Boston")#does the same thing
+dim(Boston) #shows dimensions, how many columns and rows
+names(Boston) #column names
+str(Boston) #structure (numeric, int, categorical, etc.)
+nrow(Boston)
+ncol(Boston)
+summary(Boston) #Descriptive statistics for whole dataset (broken down by individual column)
+summary(Boston$crim) #Descriptive statistics for just crime rate vector
+
+
+library(ISLR)
+data("Auto")
+head(Auto)
+?Auto
+head(Auto,10) #will see 10 rows instead of just 6
+names(Auto)
+summary(Auto)
+
+fivenum(Auto$mpg)
+boxplot(Auto$weight)
+
+mean(Auto$weight)
+median(Auto$weight)
+
+data1 <- read.csv("2010EPI_data.csv", header = TRUE, skip = 1)
+names(data1)
+
+fivenum(data1$EPI)
+boxplot(data1$EPI)
+
+data1
