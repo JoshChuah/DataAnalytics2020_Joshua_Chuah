@@ -114,7 +114,7 @@ summary(comparisons)
 boxplot(epi, envhealth, ecosystem, air_h, water_h, air_e, water_e, biodiversity)
 
 
-
+##Filtering
 EPILand <- epi[!Landlock]
 Eland <- EPILand[!is.na(EPILand)]
 hist(Eland)
@@ -126,11 +126,18 @@ GRUMP_data <- read.csv("GPW3_GRUMP_SummaryInformation_2010.csv", header = TRUE)
 
 summary(GRUMP_data)
 
-population <- GRUMP_data$Sum.All.Urban.Extents..pop.
-area <- GRUMP_data$Area
+populationperunit <- GRUMP_data$PopulationPerUnit
+summary(populationperunit)
+fivenum(populationperunit)
+hist(populationperunit)
+boxplot(populationperunit)
 
-summary(population)
-fivenum(population)
-boxplot(population)
-hist(population)
-hist(area)
+##Filtering to find number densely populated countries
+denselypop <- populationperunit[populationperunit > 500]
+length(denselypop)
+length(populationperunit)
+
+boxplot(populationperunit, denselypop)
+#Can draw the conclusion that many of the countries are not very densely populated, most large countries are outliers
+
+
