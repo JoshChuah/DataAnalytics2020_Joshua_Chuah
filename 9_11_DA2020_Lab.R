@@ -114,8 +114,23 @@ summary(comparisons)
 boxplot(epi, envhealth, ecosystem, air_h, water_h, air_e, water_e, biodiversity)
 
 
+
+EPILand <- epi[!Landlock]
+Eland <- EPILand[!is.na(EPILand)]
+hist(Eland)
+hist(Eland,x,prob=TRUE)
+
 #Inspect the data to make sure operations are applicable to data, i.e. don't want to find quantiles on a vector of strings
 
-GRUMP_data <- read.csv("GPW3_GRUMP_SummaryInformation_2010.csv")
+GRUMP_data <- read.csv("GPW3_GRUMP_SummaryInformation_2010.csv", header = TRUE)
 
 summary(GRUMP_data)
+
+population <- GRUMP_data$Sum.All.Urban.Extents..pop.
+area <- GRUMP_data$Area
+
+summary(population)
+fivenum(population)
+boxplot(population)
+hist(population)
+hist(area)
