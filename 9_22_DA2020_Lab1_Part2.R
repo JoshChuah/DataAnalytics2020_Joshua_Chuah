@@ -36,8 +36,6 @@ plot(ecdf(air_h), do.points=FALSE, verticals = TRUE)
 plot(ecdf(water_h), do.points = TRUE, verticals = TRUE)
 
 
-
-
 help(qqnorm)
 par(pty='s')
 qqnorm(air_h)
